@@ -1,4 +1,4 @@
-** 0x03 Shell Variables expansions **
+**0x03 Shell Variables expansions**
 
 
 Task 0 - Create an alias named ls with value "rm *"
