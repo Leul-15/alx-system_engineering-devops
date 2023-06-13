@@ -1,6 +1,6 @@
 # 0x03 Shell Variables expansions
 
-```
+
 Task 0 - Create an alias named ls with value "rm *"
 
 Task 1 - Print hello (current user)
@@ -36,4 +36,3 @@ Task 15 - Script that encodes and decodes text using the rot13 encryption
 Task 16 - Prints every other line from the input, starting with the first line
 
 Task 17 - script that adds the two numbers stored in the environment variables WATER and STIR and prints the result
-```
