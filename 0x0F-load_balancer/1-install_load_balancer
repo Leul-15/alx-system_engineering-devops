@@ -14,8 +14,8 @@ frontend http-in
         default_backend servers
 backend servers
         balance roundrobin
-        server 277354-web-01 107.21.38.70 check
-        server 277354-web-02 100.26.213.217 check
+        server 277354-web-01 107.21.38.70:80 check
+        server 277354-web-02 100.26.213.217:80 check
 " >> /etc/haproxy/haproxy.cfg
 
 echo "ENABLED=1" >> /etc/default/haproxy
