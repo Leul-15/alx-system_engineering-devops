@@ -26,11 +26,14 @@ defaults
 
 frontend http-in
         bind *:80
-        bind *:443 ssl crt /etc/letsencrypt/live/www.schoolprogram.tech/privkey.pem
+        bind *:443 ssl crt /etc/haproxy/haproxy.pem
+        timeout client 50000
         mode http
-        redirect scheme https if !{ ssl_fc }
         default_backend servers
 backend servers
+        timeout connect 5000
+        timeout server 50000
         balance roundrobin
+        mode http
         server 277354-web-01 107.21.38.70:80 check
         server 277354-web-02 100.26.213.217:80 check
