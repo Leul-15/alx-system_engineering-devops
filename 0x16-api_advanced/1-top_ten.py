@@ -7,14 +7,14 @@ import requests
 def top_ten(subreddit):
     """Print the titles of the 10 hottest posts on a given subreddit
     """
-    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
+    url = "https://www.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
     headers = {
         "User-Agent": "linux User Agent 1.0"
     }
     params = {
         "limit": 10
     }
-    response = requests.get(url, headers=headers, params=params,
+    response = requests.get(url, headers=headers,
                             allow_redirects=False)
     if response.status_code == 404:
         print("None")
