@@ -1,17 +1,27 @@
 #!/usr/bin/python3
-"""
-Query the Reddit API and returns the number of subscribers
-"""
+"""Request"""
 import requests
 
 
 def number_of_subscribers(subreddit):
-    """
-    Get the number of subscribers
-    """
-    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
-    headers = {"User-Agent": "linux User Agent 1.0"}
-    response = requests.get(url, headers=headers, allow_redirects=False)
-    if response.status_code != 200:
+    """Request subreddit"""
+    url = 'https://api.reddit.com/r/{}/about.json'.format(subreddit)
+    header = {'User-agent': 'User Agent 0.1'}
+    subred = requests.get(url, headers=header, allow_redirects=False)
+
+    if subred.status_code != 200:
         return 0
-    return response.json().get("data").get("subscribers")
+
+    try:
+        theme = subred.json()
+    except:
+        print("Not a valid JSON")
+        return 0
+
+    data = theme.get("data")
+    if data:
+        subscribers = data.get("subscribers")
+        if subscribers:
+            return subscribers
+
+    return 0
