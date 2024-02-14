@@ -1,10 +1,15 @@
 #!/usr/bin/python3
-""""""
+"""
+Recursive function that queries the Reddit API, parses the title of all
+hot articles, and prints a sorted count of given keywords
+"""
 import requests
 
 
 def count_words(subreddit, word_list, hot_list=[], after=""):
-    """"""
+    """
+    Get the titles of the first 100 hot posts for a given subreddit
+    """
     url = "https://www.reddit.com/r/{}/hot.json?limit=100&after={}".format(
         subreddit, after
     )
